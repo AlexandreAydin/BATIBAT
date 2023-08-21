@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Icon #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -13,7 +16,41 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+    <header>
+        {% block header %}
+                {% include "partials/_top-navbar.html.twig" %}
+        {% endblock %}
+    </header>
+
+    <nav>
+        <div class="upper-part mt-4">
+            {% block navbar %}
+                {% include "partials/_header.html.twig" %}
+            {% endblock %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12  d-flex flex-column align-items-center justify-content-center">
+                        <img class='img-fluid logo-on-bg-image' src="{{ asset('img/batibat-removebg-preview.png') }}" alt="batibat-removebg-preview">
+                        <div class="text-on-image">
+                            <h1 class="display-1 text-center text-white fw-bold shadow">Entreprise Général De Maçonnerie Tout Corp D'Etat</h1>
+                            <h2 class="display-2 text-center text-white fw-bold shadow">Construction Et Rénovation</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> 
+
     <body>
         {% block body %}{% endblock %}
+
+         {% block footer %}
+                {% include "partials/_footer.html.twig" %}
+            {% endblock %}
+
+
+  
+            <script src="https://unpkg.com/scrollreveal"></script>
+  
     </body>
 </html>
