@@ -31,9 +31,13 @@ class Realization
     #[ORM\Column]
     private ?int $year = null;
 
+    #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'realizations')]
+    private Collection $categorys;
+
     public function __construct()
     {
         $this->realizationImages = new ArrayCollection();
+        $this->categorys = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -118,4 +122,29 @@ class Realization
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Categorie>
+     */
+    public function getCategorys(): Collection
+    {
+        return $this->categorys;
+    }
+
+    public function addCategory(Categorie $category): static
+    {
+        if (!$this->categorys->contains($category)) {
+            $this->categorys->add($category);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categorie $category): static
+    {
+        $this->categorys->removeElement($category);
+
+        return $this;
+    }
+
 }

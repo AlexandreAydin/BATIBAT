@@ -5,7 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Realization;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use App\Form\RealizationImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -23,7 +25,8 @@ class RealizationCrudController extends AbstractCrudController
             TextField::new('title','titre'),
             SlugField::new('slug')->setTargetFieldName('title'),
             TextField::new('locations','lieux'),
-            TextField::new('year','l\'anée'),
+            IntegerField::new('year','l\'anée'),
+            AssociationField::new('categorys'),
             CollectionField::new('realizationImages')
                 ->setEntryType(RealizationImageType::class),
         ];
