@@ -21,16 +21,20 @@ class Categorie
     #[ORM\ManyToMany(targetEntity: Realization::class, mappedBy: 'categorys')]
     private Collection $realizations;
 
-    public function __construct()
-    {
-        $this->realizations = new ArrayCollection();
-    }
+    #[ORM\ManyToMany(targetEntity: Prest::class, mappedBy: 'categorys')]
+    private Collection $prests;
 
     public function __toString()
     {
         return $this->getName();
     }
 
+
+    public function __construct()
+    {
+        $this->realizations = new ArrayCollection();
+        $this->prests = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -71,6 +75,33 @@ class Categorie
     {
         if ($this->realizations->removeElement($realization)) {
             $realization->removeCategory($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Prest>
+     */
+    public function getPrests(): Collection
+    {
+        return $this->prests;
+    }
+
+    public function addPrest(Prest $prest): static
+    {
+        if (!$this->prests->contains($prest)) {
+            $this->prests->add($prest);
+            $prest->addCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removePrest(Prest $prest): static
+    {
+        if ($this->prests->removeElement($prest)) {
+            $prest->removeCategory($this);
         }
 
         return $this;

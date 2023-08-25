@@ -1,0 +1,29 @@
+<section class="work">
+    <div class="container">
+        <div class="section-header text-center mb-4">                   
+        </div>
+        <div class="row">
+            {% for realization in realizations %}
+                <div class="col-lg-4 col-md-6 wow fadeInUp">
+                    <div class="work-item">
+                        {% set firstImage = realization.realizationImages.first() %}
+                        <div class="work-img">
+                            {% if firstImage %}
+                                <a href="{{ path('app_realization_details', { 'slug': realization.slug }) }}">
+                                    <img src="{{ asset('images/realizations/' ~ firstImage.name) }}" alt="Image de réalisation">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="work-title">
+                            <h3>Lorem ipsum dolor sit.</h3>                                    
+                        </div>
+                        <div class="work-meta">
+                            <p>L'année et lieux de travaux:</p>
+                            <p>{{ realization.year }} - {{ realization.locations }}</p>
+                        </div>    
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+    </div>
+</section>

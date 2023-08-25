@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nos derniers travaux réalisés
+{% endblock %}
+
+{% block body %}
+
+	<div class="row mobile-position">
+		{# <div class="col-md-3">
+			<h3> Filtrer </h3>
+			{{ form (form)}}
+		</div> #}
+		<div class="col-md-9 container">
+			<h3 class "container p-4"> Nos derniers travaux réalisés </h3>
+
+			<div class="row container realization-container">
+				<div class="col-md-12 tablet-margin">
+					{% include 'pages/realization/_single_realization.html.twig'%}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

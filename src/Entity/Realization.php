@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\RealizationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Mapping\Annotation as Gedmo; 
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -30,6 +29,7 @@ class Realization
 
     #[ORM\Column]
     private ?int $year = null;
+
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'realizations')]
     private Collection $categorys;
@@ -68,6 +68,7 @@ class Realization
 
         return $this;
     }
+    
 
     /**
      * @return Collection<int, RealizationImage>
@@ -146,5 +147,6 @@ class Realization
 
         return $this;
     }
+
 
 }
