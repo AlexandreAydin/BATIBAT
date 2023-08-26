@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
+use App\Entity\Prest;
 use App\Entity\Realization;
 use App\Entity\RealizationImage;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -17,22 +18,6 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         return $this->render('admin/dasboard.html.twig');
-
-        // Option 1. You can make your dashboard redirect to some common page of your backend
-        //
-        // $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        // return $this->redirect($adminUrlGenerator->setController(OneOfYourCrudController::class)->generateUrl());
-
-        // Option 2. You can make your dashboard redirect to different pages depending on the user
-        //
-        // if ('jane' === $this->getUser()->getUsername()) {
-        //     return $this->redirect('...');
-        // }
-
-        // Option 3. You can render some custom template to display a proper dashboard with widgets, etc.
-        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
-        //
-        // return $this->render('some/path/my-dashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -46,6 +31,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Réalisation', 'fas fa-image', Realization::class);
         yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-image', RealizationImage::class);
+        yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-pencil', Prest::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
     }
 }
