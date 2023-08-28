@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\PrestRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[UniqueEntity('slug')]
 #[ORM\Entity(repositoryClass: PrestRepository::class)]
 class Prest
 {
@@ -28,9 +31,18 @@ class Prest
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prests')]
     private Collection $categorys;
 
+    #[ORM\Column(length: 255, unique:true)]
+    private ?string $slug = null;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imagePath;
+
     public function __construct()
     {
         $this->categorys = new ArrayCollection();
+        $this->createdAt = new DateTimeImmutable ();
     }
 
     public function getId(): ?int
@@ -97,4 +109,22 @@ class Prest
 
         return $this;
     }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
 }

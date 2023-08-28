@@ -5,8 +5,10 @@ namespace App\Controller\Admin;
 use App\Entity\Prest;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
@@ -30,9 +32,11 @@ class PrestCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
+            SlugField::new('slug')->setTargetFieldName('name'),
             TextEditorField::new('description')
                 ->setFormType(CKEditorType::class)
                 ->hideOnIndex(),
+            AssociationField::new('categorys'),
             DateTimeField::new('createdAt')->hideOnForm(),
         ];
     }

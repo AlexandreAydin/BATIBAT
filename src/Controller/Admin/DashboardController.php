@@ -31,7 +31,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Réalisation', 'fas fa-image', Realization::class);
         yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-image', RealizationImage::class);
-        yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-pencil', Prest::class);
+        yield MenuItem::linkToCrud('Préstations article de blog', 'fas fa-pencil', Prest::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
     }
 }
+ 

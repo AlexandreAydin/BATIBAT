@@ -5,8 +5,10 @@ namespace App\Entity;
 use App\Repository\RealizationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
+#[UniqueEntity('slug')]
 #[ORM\Entity(repositoryClass: RealizationRepository::class)]
 class Realization
 {
@@ -18,7 +20,7 @@ class Realization
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,unique:true )]
     private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'realisation', targetEntity: RealizationImage::class, cascade: ['persist'], orphanRemoval: true,)]

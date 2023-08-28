@@ -47,3 +47,4 @@ fos_ck_editor:
             }
         filebrowserBrowseRoute: elfinder
         filebrowserBrowseRouteParameters: []
+        contentsCss: ['/build/css/app.css']

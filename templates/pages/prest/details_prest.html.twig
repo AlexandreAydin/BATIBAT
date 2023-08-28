@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ prest.name }} - Détails de la prestation
+{% endblock %}
+
+{% block body %}
+<section class="container mt-4 service-reveal">
+    <h2 class="text-center">{{ prest.name }}</h2>
+
+    <div class="mt-4 mb-4 ">
+        {{ prest.description | raw }} {# On utilise le filtre raw car CKEditor stocke le contenu en HTML #}
+    </div>
+
+    <a href="{{ path('app_prest') }}" class="btn">Retour à la liste des prestations</a>
+</section>
+{% endblock %}
