@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<section class="container section-contact contact-reveal">
+    <h2 class='text-center mt-4 mb-4'>Contact</h2>
+    {% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endfor %}
+
+    <div class="row">
+        <div class="col-md-6 mb-4 reveal-top">
+            <form action="{{ path('app_submit_contact') }}" method="post">
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Nom</label>
+                    <input type="text" name="name" class="form-control" id="nameInput" placeholder="Votre nom" required>
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Votre email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phoneInput" class="form-label">Numéro de téléphone</label>
+                    <input type="tel" name="phone" class="form-control" id="phoneInput" placeholder="Votre numéro de téléphone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="messageTextarea" class="form-label">Message</label>
+                    <textarea name="message" class="form-control" id="messageTextarea" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </div>
+        <div class="col-md-6 reveal-bottom">
+            <div class="mt-4">
+                <div class="d-flex mb-3">
+                    <i class="fa fa-location-dot"></i>
+                    <p>Adresse:
+                    {{ address|default('149 RUE GERMAIN SIRAUDIN 77000 VAUX-LE-PENIL') }}</p>
+                </div>
+                <hr>
+               <div class="d-flex mb-3">
+                    <i class="fa fa-phone mr-2"></i>
+                    <p>Contact : <a href="tel:{{ phone|default('06 51 52 55 87') }}" class="text-decoration-none text-reset">{{ phone|default('06 51 52 55 87') }}</a></p>
+                </div>
+
+                <hr>
+                <div class="d-flex mb-3">
+                    <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
+                    <p>Email: {{ email|default('batibatidf@gmail.com') }}</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section> 
+
+{% endblock %}

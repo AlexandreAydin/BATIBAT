@@ -24,7 +24,7 @@ html{
 
 
 
-a.btn {
+.btn {
     position: relative;
     margin-top: 1.5rem;
     padding: 1.5rem 3.5rem;
@@ -37,7 +37,7 @@ a.btn {
     transition: .3s;
 }
 
-a.btn:hover {
+.btn:hover {
     color: #fdbe33;
     background-color: #030f27;
 }
@@ -376,8 +376,6 @@ a.btn:hover {
 }
 
 
-
-
 .form-label{
     font-size: 1.8rem;
     font-weight: bold;
@@ -401,7 +399,6 @@ a.btn:hover {
     font-size: 1.8rem;
     padding-left: 1rem;
 }
-
 
 
 

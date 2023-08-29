@@ -194,23 +194,25 @@
     <h2 class='text-center mt-4 mb-4'>Contact</h2>
     <div class="row">
         <div class="col-md-6 mb-4 reveal-top">
-            <div class="mb-3">
-                <label for="nameInput" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="nameInput" placeholder="Votre nom">
-            </div>
-            <div class="mb-3">
-                <label for="emailInput" class="form-label">Email</label>
-                <input type="email" class="form-control" id="emailInput" placeholder="Votre email">
-            </div>
-            <div class="mb-3">
-                <label for="phoneInput" class="form-label">Numéro de téléphone</label>
-                <input type="tel" class="form-control" id="phoneInput" placeholder="Votre numéro de téléphone">
-            </div>
-            <div class="mb-3">
-                <label for="messageTextarea" class="form-label">Message</label>
-                <textarea class="form-control" id="messageTextarea" rows="3"></textarea>
-            </div>
-             <a href="#" class='btn'>Envoyer</a>
+            <form action="{{ path ('app_submit_contact')}}" method='post'>
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Nom</label>
+                    <input type="text" name="name" class="form-control" id="nameInput" placeholder="Votre nom">
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" id="emailInput" placeholder="Votre email">
+                </div>
+                <div class="mb-3">
+                    <label for="phoneInput" class="form-label">Numéro de téléphone</label>
+                    <input type="tel" name="phone" class="form-control" id="phoneInput" placeholder="Votre numéro de téléphone">
+                </div>
+                <div class="mb-3">
+                    <label for="messageTextarea" class="form-label">Message</label>
+                    <textarea class="form-control" name="message" id="messageTextarea" rows="3"></textarea>
+                </div>
+                <button type:'submit' class='btn'>Envoyer</button>
+            </form>
         </div>
         <div class="col-md-6 reveal-bottom">
             <div class="mt-4">

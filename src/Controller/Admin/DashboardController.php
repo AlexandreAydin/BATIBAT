@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Categorie;
+use App\Entity\Contact;
 use App\Entity\Prest;
 use App\Entity\Realization;
 use App\Entity\RealizationImage;
@@ -33,6 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-image', RealizationImage::class);
         yield MenuItem::linkToCrud('Préstations article de blog', 'fas fa-pencil', Prest::class);
         yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-user', Contact::class);
     }
 }
  
