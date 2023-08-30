@@ -22,11 +22,13 @@
         {% endblock %}
     </header>
 
-    <nav>
-        <div class="upper-part mt-4">
-            {% block navbar %}
-                {% include "partials/_header.html.twig" %}
-            {% endblock %}
+
+    {% block navbar %}
+        {% include "partials/_header.html.twig" %}
+    {% endblock %}
+    
+        {% if block('image') is defined %}
+        <div class="upper-part mt-1">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12  d-flex flex-column align-items-center justify-content-center">
@@ -38,8 +40,9 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
-    </nav> 
+
 
     <body>
         {% block body %}{% endblock %}

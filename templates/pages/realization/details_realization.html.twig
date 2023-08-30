@@ -27,7 +27,7 @@
     {% for image in realization.realizationImages %}
         <div class="image">
             <span>
-              <img src="{{ asset('images/realizations/' ~ image.name) }}" alt="Image de réalisation">
+              <img style="width: 400px; height: 300px; object-fit: fill;" src="{{ asset('images/realizations/' ~ image.name) }}" alt="Image de réalisation">
             </span>
         </div>
     {% endfor %}
