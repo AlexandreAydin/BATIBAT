@@ -226,12 +226,12 @@
                 <hr>
                 <div class="d-flex mb-3">
                     <i class="fa fa-phone mr-2"></i>
-                    <p>Contact : 06 51 52 55 87</p>
+                    <p>Contact :</p> <a class="text-decoration-none" href="tel:{{ phone|default('+33 6 51 52 55 87') }}"> <p>06 51 52 55 87</p></a>
                 </div>
                 <hr>
                 <div class="d-flex mb-3">
                     <i class="fa fa-envelope mr-2" aria-hidden="true"></i>
-                    <p>Email: batibatidf@gmail.com</p>
+                    <p>Email:</p><a class="text-decoration-none" href="mailto:{{ email|default('batibatidf@gmail.com') }}"> <p>batibatidf@gmail.com</p></a>
                 </div>
                 <hr>
             </div>

@@ -1,9 +1,9 @@
 <div id="top-navbar">
-  <ul class="container  d-flex">
+  <ul class="container d-flex">
     <li><i class="fa fa-file-invoice m-3"></i>Devis gratuit</li>
     <li><i class="fa fa-clock m-3"></i>Réponse rapide</li>
     <li><i class="fa fa-wallet m-3"></i>Meilleur qaulité prix</li>
     <li><i class="fa fa-location-dot m-3"></i>Ile-de-France</li>
-    <li><i class="fa fa-phone m-3"></i>06 51 52 55 87</li>
+    <li><i class="fa fa-phone m-3"></i><a class="text-decoration-none" href="tel:{{ phone|default('+33 6 51 52 55 87') }}">06 51 52 55 87</li>
   </ul>
 </div>

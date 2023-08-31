@@ -1,5 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
+// Vos styles SCSS ici
+
 *{
     margin: 0;
     padding: 0;
@@ -65,15 +67,19 @@ html{
     align-items: center;
 }
 
-#top-navbar ul li i {
-    font-size: 2.6rem;
-}
-
-#top-navbar ul  li {
+#top-navbar ul li {
     padding: 1rem;
     margin: 0.5rem; 
     font-size: 1.8rem;
 } 
+
+#top-navbar ul li i {
+    font-size: 2.6rem;
+}
+
+#top-navbar ul li a  {
+    color: #808080;
+}
 
 
 /*******************************
