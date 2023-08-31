@@ -6,8 +6,10 @@ use App\Repository\CategorieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
+#[UniqueEntity('slug')]
 class Categorie
 {
     #[ORM\Id]
@@ -17,6 +19,9 @@ class Categorie
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
+
+    #[ORM\Column(length: 255, unique:true)]
+    private ?string $slug = null;
 
     #[ORM\ManyToMany(targetEntity: Realization::class, mappedBy: 'categorys')]
     private Collection $realizations;
@@ -49,6 +54,18 @@ class Categorie
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

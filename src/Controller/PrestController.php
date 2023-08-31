@@ -2,22 +2,41 @@
 
 namespace App\Controller;
 
+use App\Entity\Categorie;
 use App\Entity\Prest;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\CategorieRepository;
+use App\Repository\PrestRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PrestController extends AbstractController
 {
     #[Route('/nos-prestations', name: 'app_prest')]
-    public function index(EntityManagerInterface $manager): Response
+    public function index(
+    PrestRepository $prestRepository,
+    Request $request,
+    PaginatorInterface $paginator,
+    CategorieRepository $categorieRepo
+    ): Response
     {
+        // $prests = $manager->getRepository(Prest::class)->findAll();
 
-        $prests = $manager->getRepository(Prest::class)->findAll();
+        $categoriesWithPrestations = $categorieRepo->findWithPrestations()->getQuery()->getResult();
+        
+        $prests = $paginator->paginate(
+
+            $prestRepository->paginationQuery(),
+
+            $request->query->getInt('page', 1), 
+            1
+        );
 
         return $this->render('pages/prest/index.html.twig', [
             'prests' => $prests,
+            'categories' => $categoriesWithPrestations,
         ]);
     }
 

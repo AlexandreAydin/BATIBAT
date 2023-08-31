@@ -2,8 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Categorie;
 use App\Entity\Realization;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,20 +23,23 @@ class RealizationRepository extends ServiceEntityRepository
         parent::__construct($registry, Realization::class);
     }
 
-//    /**
-//     * @return Realization[] Returns an array of Realization objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function paginationQuery()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.id', 'DESC')
+            ->getQuery()
+        ;
+    }
+
+    public function findByRealizationCategoryQuery(Categorie $categorie): QueryBuilder
+    {
+        return $this->createQueryBuilder('p')
+                    ->join('p.categorys', 'c') 
+                    ->where('c.id = :categorieId')
+                    ->setParameter('categorieId', $categorie->getId())
+                    ->orderBy('p.id', 'DESC');
+    }
+    
 
 //    public function findOneBySomeField($value): ?Realization
 //    {

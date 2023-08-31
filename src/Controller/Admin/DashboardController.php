@@ -6,6 +6,7 @@ use App\Entity\Categorie;
 use App\Entity\Contact;
 use App\Entity\Prest;
 use App\Entity\Realization;
+use App\Entity\RealizationCategorie;
 use App\Entity\RealizationImage;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -33,7 +34,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Réalisation', 'fas fa-image', Realization::class);
         yield MenuItem::linkToCrud('Réalisation Images', 'fas fa-image', RealizationImage::class);
         yield MenuItem::linkToCrud('Préstations article de blog', 'fas fa-pencil', Prest::class);
-        yield MenuItem::linkToCrud('Catégories', 'fas fa-list', Categorie::class);
+        yield MenuItem::linkToCrud('Préstation Catégories', 'fas fa-list', Categorie::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-user', Contact::class);
     }
 }

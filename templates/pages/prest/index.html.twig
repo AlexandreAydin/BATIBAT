@@ -3,60 +3,21 @@
 {% block title %}Hello PrestController!{% endblock %}
 
 {% block body %}
-
 <section class="container mt-4 service-reveal">
     <h2 class='text-center'>Nos préstations</h2>
-    <div class="row g-3 mt-4 mb-4">
-        {% for prest in prests %}
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                {# Extraction de l'image depuis la description #}
-                {% set startSplit = prest.description|split('<img') %}
-                {% if startSplit|length > 1 %}
-                    {% set endSplit = startSplit[1]|split('>') %}
-                    {% set imageTag = '<img' ~ endSplit[0] ~ '>' %}
-                {% else %}
-                    {% set imageTag = '' %}
-                {% endif %}
-
-                {% if imageTag %}
-                    {% set srcSplit = imageTag|split('src="') %}
-                    {% if srcSplit|length > 1 %}
-                        {% set endSrcSplit = srcSplit[1]|split('"') %}
-                        {% set imageUrl = endSrcSplit[0] %}
-                    {% else %}
-                        {% set imageUrl = '' %}
-                    {% endif %}
-                {% else %}
-                    {% set imageUrl = '' %}
-                {% endif %}
-
-                {# Affichage de l'image #}
-                {% if imageUrl %}
-                    <img src="{{ asset(imageUrl) }}" alt="{{ prest.name }}" class='card-img-top'>
-                {% else %}
-                    <img src="{{ asset('uploads/images/' ~ prest.imagePath) }}" alt="{{ prest.name }}" class='card-img-top'>
-                {% endif %}
-
-                <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">{{ prest.name }}</h5>
-                </div>
-
-                {# Suppression de l'image depuis la description #}
-                {% set descriptionWithoutImage = prest.description|replace({('<img' ~ endSplit[0] ~ '>'): '', '</img>': ''}) %}
-
-                <div class="card-body">
-                    <p class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</p>
-
-                </div>
-
-                <div class="card-footer p-0 text-center card-text mb-4">
-                    <a  class="btn" href="{{ path('app_prest_details', { 'slug': prest.slug }) }}">Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
+    <div>
+        {# {% for cat in allCategories %} 
+            <li>
+                <a href="{{ path ('app_category_show', {slug: cat.slug}) }}">{{ cat.name }}</a>
+            </li>
+        {% endfor %} #}
+           {% for categorie in categories %}
+    <li>
+        <a href="{{ path ('app_category_show_prest', {slug: categorie.slug}) }}">{{ categorie.name }}</a>
+    </li>
+{% endfor %}
+        
     </div>
+    {% include "pages/prest/_single_prest.html.twig" %}
 </section>
-
 {% endblock %}

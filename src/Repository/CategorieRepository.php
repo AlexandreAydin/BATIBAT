@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Categorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @extends ServiceEntityRepository<Categorie>
@@ -21,21 +23,19 @@ class CategorieRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorie::class);
     }
 
-//    /**
-//     * @return Categorie[] Returns an array of Categorie objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findWithPrestations(): QueryBuilder
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.prests', 'p')
+            ->groupBy('c.id');
+    }
 
+    public function findWithRealizations(): QueryBuilder
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.realizations', 'p')
+            ->groupBy('c.id');
+    }
 //    public function findOneBySomeField($value): ?Categorie
 //    {
 //        return $this->createQueryBuilder('c')

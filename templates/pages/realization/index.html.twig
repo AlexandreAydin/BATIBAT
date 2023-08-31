@@ -5,17 +5,22 @@
 
 {% block body %}
 
-	<div class="row mobile-position">
-		{# <div class="col-md-3">
-			<h3> Filtrer </h3>
-			{{ form (form)}}
-		</div> #}
-		<div class="col-md-9 container">
+	<div class="container mt-4 service-reveal">
+		<div>
 			<h3 class "container p-4"> Nos derniers travaux réalisés </h3>
-
-			<div class="row container realization-container">
-				<div class="col-md-12 tablet-margin">
-					{% include 'pages/realization/_single_realization.html.twig'%}
+			{% for categorie in categories %}
+				<li>
+					<a href="{{ path ('app_category_show_realization', {slug: categorie.slug}) }}">{{ categorie.name }}</a>
+				</li>
+			{% endfor %}
+			<div id="prest-list" class="service-reveal">
+			{% include 'pages/realization/_single_realization.html.twig'%}
+			</div>	
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="d-flex align-items-center justify-content-center">
+					{{ knp_pagination_render(realizations) }}
 				</div>
 			</div>
 		</div>

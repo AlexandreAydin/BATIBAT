@@ -36,6 +36,7 @@ class Realization
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'realizations')]
     private Collection $categorys;
 
+
     public function __construct()
     {
         $this->realizationImages = new ArrayCollection();
@@ -149,6 +150,5 @@ class Realization
 
         return $this;
     }
-
 
 }
