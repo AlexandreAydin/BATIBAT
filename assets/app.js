@@ -12,6 +12,22 @@ import './styles/app.scss';
 import { Tooltip, Toast, Popover } from 'bootstrap';
 
 
+  window.addEventListener('scroll', function() {
+    const topNavbar = document.getElementById('top-navbar').offsetHeight;
+    const mainNavbar = document.getElementById('main-navbar');
+
+    if (window.pageYOffset >= topNavbar) {
+      mainNavbar.style.position = 'fixed';
+      mainNavbar.style.top = '0';
+    } else {
+      mainNavbar.style.position = 'static';
+    }
+  });
+
+
+
+
+
 window.sr = ScrollReveal({
     reset: true,
 });
