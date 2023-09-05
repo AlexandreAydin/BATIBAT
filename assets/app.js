@@ -7,22 +7,21 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
+const $ = require('jquery');
+
 
 
 import { Tooltip, Toast, Popover } from 'bootstrap';
 
-
-  window.addEventListener('scroll', function() {
-    const topNavbar = document.getElementById('top-navbar').offsetHeight;
-    const mainNavbar = document.getElementById('main-navbar');
-
-    if (window.pageYOffset >= topNavbar) {
-      mainNavbar.style.position = 'fixed';
-      mainNavbar.style.top = '0';
-    } else {
-      mainNavbar.style.position = 'static';
-    }
+/*******************************
+*! Navbar start
+*******************************/
+// ajoute la class navbar-custom-bg pour ajouter bg-color
+$(document).ready(function(){
+  $(".navbar-toggler").click(function(){
+      $(".navbar .container").toggleClass("navbar-custom-bg");
   });
+});
 
 
 
