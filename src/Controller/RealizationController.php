@@ -36,7 +36,7 @@ class RealizationController extends AbstractController
             $realizationRepository->paginationQuery(),
 
             $request->query->getInt('page',1),
-            1
+            3
         );
 
         return $this->render('pages/realization/index.html.twig',[

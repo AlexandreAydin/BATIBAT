@@ -24,11 +24,8 @@ $(document).ready(function(){
 });
 
 
-
-
-
 window.sr = ScrollReveal({
-    reset: true,
+    reset: false,
 });
 
 /****************************************************************************************************************************
@@ -51,13 +48,13 @@ sr.reveal(".feature-reveal .reveal-left i", {
   delay: 150,
 });
 
-sr.reveal(".feature-reveal .reveal-rigth", {
+sr.reveal(".feature-reveal .reveal-bottom", {
   duration: 2000,
-  origin: "rigth",
+  origin: "bottom",
   distance: "200px",
 });
 
-sr.reveal(".feature-reveal .reveal-rigth i", {
+sr.reveal(".feature-reveal .reveal-bottom i", {
   duration: 2000,
   origin: "left",
   distance: "250px",
@@ -72,25 +69,25 @@ sr.reveal(".feature-reveal .reveal-rigth i", {
 * ! About 
 /*******************************/
   
-sr.reveal(".about-reveal .reveal", {
-  duration: 2000,
-  origin: "rigth",
-  distance: "200px",
-});
+// sr.reveal(".about-reveal .reveal", {
+//   duration: 2000,
+//   origin: "bottom",
+//   distance: "200px",
+// });
 
-sr.reveal(".about-reveal .reveal .btn", {
-  duration: 2000,
-  origin: "rigth",
-  distance: "350px",
-  delay: 150,
-});
+// sr.reveal(".about-reveal .reveal .btn", {
+//   duration: 2000,
+//   origin: "right",
+//   distance: "350px",
+//   delay: 150,
+// });
 
-sr.reveal(".about-reveal .reveal img", {
-  duration: 2000,
-  origin: "left",
-  distance: "300px",
-  delay: 150,
-});
+// sr.reveal(".about-reveal .reveal img", {
+//   duration: 2000,
+//   origin: "left",
+//   distance: "300px",
+//   delay: 150,
+// });
 
 /*******************************
 * ! About end

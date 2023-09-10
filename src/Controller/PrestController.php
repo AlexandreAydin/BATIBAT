@@ -31,7 +31,7 @@ class PrestController extends AbstractController
             $prestRepository->paginationQuery(),
 
             $request->query->getInt('page', 1), 
-            1
+            12
         );
 
         return $this->render('pages/prest/index.html.twig', [
