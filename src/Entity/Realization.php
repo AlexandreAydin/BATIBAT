@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\RealizationRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -36,11 +37,15 @@ class Realization
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'realizations')]
     private Collection $categorys;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
 
     public function __construct()
     {
         $this->realizationImages = new ArrayCollection();
         $this->categorys = new ArrayCollection();
+        $this->createdAt = new DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -147,6 +152,18 @@ class Realization
     public function removeCategory(Categorie $category): static
     {
         $this->categorys->removeElement($category);
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

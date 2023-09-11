@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Realization;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use App\Form\RealizationImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -16,6 +17,12 @@ class RealizationCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Realization::class;
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+    return $crud
+        ->setDefaultSort(['createdAt' => 'DESC']);
     }
 
     

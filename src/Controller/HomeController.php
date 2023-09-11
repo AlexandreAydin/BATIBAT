@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Prest;
+use App\Entity\Realization;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,15 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $manager): Response
     {
 
-        $prests = $manager->getRepository(Prest::class)->findAll();
+        $prestRepository = $manager->getRepository(Prest::class);
+        $prests = $prestRepository->paginationQuery()->getResult();
+
+        $realizationRepository = $manager->getRepository(Realization::class);
+        $realizations = $realizationRepository->paginationQuery()->getResult();
 
         return $this->render('pages/home/index.html.twig', [
              'prests' => $prests,
+             'realizations' => $realizations
         ]);
     }
 }

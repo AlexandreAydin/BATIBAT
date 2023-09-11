@@ -101,96 +101,6 @@
 <!-- About End -->
 
 <!-- Service Start -->
-{# <section class="service container mt-4 service-reveal">
-    <h2 class='text-center'>Nos préstations</h2>
-    <div class="row g-3 mt-4 mb-4">
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/batibat.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 ">
-            <div class="card">
-                 <img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="Photo_brique" class='card-img-top'>
-                 <div class="card-header">
-                    <h5 class="card-title text-center display-6 fw-bold">Gros Oeuvre</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas a illo laudantium incidunt dignissimos quidem laboriosam maxime nobis impedit mollitia cumque animi ipsum obcaecati ipsa recusandae expedita in repellendus suscipit, saepe aliquid consectetur quo voluptatum! Dolore itaque non placeat minima?</p>
-                </div>
-                <div class="card-footer p-0 text-center card-text mb-4 ">
-                    <a href="#" class='btn'>Lire Plus</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> #}
-
 <section class="service container mt-4 service-reveal">
     <div class="row g-3 mt-4 mb-4">
         {% for prest in prests|slice(0, 6) %}
@@ -236,7 +146,7 @@
                 {% set descriptionWithoutImage = prest.description|replace({('<img' ~ (endSplit[0] is defined ? endSplit[0] : '') ~ '>'): '', '</img>': ''}) %}
 
                 <div class="card-body">
-                    <p class="card-text ckeditor-content">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</p>
+                    <div class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</div>
 
                 </div>
 
@@ -300,60 +210,40 @@
 <!--contact end--> 
 
 <!--works start -->
-
 <section class="work work-reveal">
     <div class="container">
-        <div class="section-header text-center">
-            <h2>Nos derniers travaux réalisés</h2>                        
+        <div class="section-header text-center mb-4">       
+        <h2>Nos derniers travaux réalisés</h2>                    
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 wow fadeInUp">
-                <div class="work-item">
-                    <div class="work-img">
-                        <a href="#"><img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="img3"></a>
+            {% for realization in realizations %}
+                <div class="col-lg-4 col-md-6 wow fadeInUp">
+                    <div class="work-item">
+                        {% set firstImage = realization.realizationImages.first() %}
+                        <div class="work-img">
+                            {% if firstImage %}
+                                <a href="{{ path('app_realization_details', { 'slug': realization.slug }) }}">
+                                    <img  src="{{ asset('images/realizations/' ~ firstImage.name) }}" alt="Image de réalisation">
+                                </a>
+                            {% endif %}
+                        </div>
+                        <div class="work-title">
+                            <h3>{{realization.title}}</h3>                                    
+                        </div>
+                        <div class="work-meta">
+                            <p>L'année et lieux de travaux:</p>
+                            <p>{{ realization.year }} - {{ realization.locations }}</p>
+                        </div>    
                     </div>
-                    <div class="work-title">
-                        <h3>Lorem ipsum dolor sit.</h3>                                    
-                    </div>
-                    <div class="work-meta">
-                        <p>L'année et lieux de travaux:</p>
-                        <p> 2022 - Melun</p>
-                    </div>    
                 </div>
-            </div> 
-           <div class="col-lg-4 col-md-6 wow fadeInUp">
-                <div class="work-item">
-                    <div class="work-img">
-                        <a href="#"><img src="{{asset('img/image.jpg')}}" alt="img3"></a>
-                    </div>
-                    <div class="work-title">
-                        <h3>Lorem ipsum dolor sit.</h3>                                    
-                    </div>
-                    <div class="work-meta">
-                        <p>L'année et lieux de travaux:</p>
-                        <p> 2022 - Melun</p>
-                    </div>    
-                </div>
-            </div> <div class="col-lg-4 col-md-6 wow fadeInUp">
-                <div class="work-item">
-                    <div class="work-img">
-                        <a href="#"><img src="{{asset('img/img_slider_4858_civil.jpg')}}" alt="img3"></a>
-                    </div>
-                    <div class="work-title">
-                        <h3>Lorem ipsum dolor sit.</h3>                                    
-                    </div>
-                    <div class="work-meta">
-                        <p>L'année et lieux des travaux:</p>
-                        <p> 2022 - Melun</p>
-                    </div>    
-                </div>
-            </div> 
+            {% endfor %} 
         </div>
     </div>
-</section>      
+</section>   
 
 <!--works end -->
 
 <script src="https://unpkg.com/scrollreveal"></script>
 
 {% endblock %}
+

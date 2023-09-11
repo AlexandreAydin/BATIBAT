@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Categorie;
 use App\Entity\Prest;
 use App\Repository\CategorieRepository;
 use App\Repository\PrestRepository;
@@ -22,7 +21,6 @@ class PrestController extends AbstractController
     CategorieRepository $categorieRepo
     ): Response
     {
-        // $prests = $manager->getRepository(Prest::class)->findAll();
 
         $categoriesWithPrestations = $categorieRepo->findWithPrestations()->getQuery()->getResult();
         

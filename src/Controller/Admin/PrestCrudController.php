@@ -24,8 +24,11 @@ class PrestCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
     return $crud
-        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
+        ->setDefaultSort(['createdAt' => 'DESC']);
     }
+
+
 
     public function configureFields(string $pageName): iterable
     {
