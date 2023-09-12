@@ -3,26 +3,42 @@
 {% block title %}{{ currentCategorie.name}}{% endblock %}
 
 {% block body %}
-    <main class="container mt-4">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">{{ currentCategorie.name}}</h3>
-        <div>
-            {% for categorie in categories %}
-                <li>
-                    <a href="{{ path ('app_category_show_realization', {slug: categorie.slug}) }}">{{  categorie.name }}</a>
-                </li>
-            {% endfor %}
-        </div>
+    <main class="container wrapper-realization-category">
+        <h3>Trier par catégorie:  </h3>   
+        <div class="wrapper-realization">
+            <div class="nav">
+                <div class="items">
+                    <select class="category-dropdown">
+                        <option value="active" {% if not currentCategorie %}selected{% endif %}>Tout</option>
+                        {% for categorie in categories %}
+                            <option value="{{ categorie.slug }}" {% if currentCategorie and currentCategorie.slug == categorie.slug %}selected{% endif %}>{{ categorie.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+		</div>
         <div id="prest-list" class="service-reveal">
             {% include "pages/realization/_single_realization.html.twig" with {realizations: realizations} %}
         </div>
-
         <div class="container">
-    <div class="row">
-        <div class="d-flex align-items-center justify-content-center">
-            {{ knp_pagination_render(realizations)}}
+            <div class="row ">
+                <div class="d-flex align-items-center justify-content-center">
+                    {{ knp_pagination_render(realizations)}}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
    
     </main>
+
+
+    <script>
+	document.querySelector('.category-dropdown').addEventListener('change', function(e) {
+    if(e.target.value === "active") {
+        window.location.href = "{{ path('app_realization') }}";
+    } else {
+        window.location.href = "{{ path('app_category_show_realization', {slug: 'REPLACE_ME' }) }}".replace('REPLACE_ME', e.target.value);
+    }
+});
+
+	</script>
 {% endblock %}

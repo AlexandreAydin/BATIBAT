@@ -1,7 +1,5 @@
 // @import "~bootstrap/scss/bootstrap";
 
-// Vos styles SCSS ici
-
 *{
     margin: 0;
     padding: 0;
@@ -24,6 +22,17 @@ html{
     font-family: 'Poppins', sans-serif;
 }
 
+.pagination .page-link {
+    background-color: var(--blue-color);
+    color: var(--yellow-color);
+    font-size: 2rem;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--yellow-color);
+    color: var(--blue-color);
+    border: 2px solid var(--blue-color);
+}
 
 
 .btn {
@@ -185,7 +194,7 @@ html{
 
 
 /*******************************
-* ! NAVBAR
+* ! NAVBAR home/index.html.twig
 *******************************/
 
 .upper-part{
@@ -322,7 +331,7 @@ html{
 
 
 /*******************************
-* ! NAVBAR index 
+* ! NAVBAR base.html.twig 
 *******************************/
 
 .logo-on-bg-image{
@@ -369,6 +378,30 @@ html{
 
 }
 
+@media screen and (max-width: 768px) {
+    .logo-on-bg-image{
+        margin-top: -90px;
+        height: 600px;
+    }
+
+    .text-on-image{
+        color: var(--blue-color);
+        margin-top: -100px;
+    }
+}
+
+@media screen and (max-width: 578px)
+{
+    .logo-on-bg-image{
+        margin-top: 0px;
+        height: 400px;
+    }
+
+    .text-on-image{
+        color: var(--blue-color);
+        margin-top: 0px;
+    }
+}
 
 
 
@@ -1016,10 +1049,20 @@ html{
   }
 }
 
+@media (max-width: 768px) {
+    .footer img {
+        margin-left: 290px;
+        margin-top: -200px
+      }
+      .footer-social{
+        margin-left: 100px; 
+      }
+}
+
 @media screen and (max-width: 578px){
     .footer img {
-        margin-left: 400px;
-        padding-top: -300;
+        margin-left: 180px;
+        padding-top: -280;
       }
       .footer-social{
         margin-left: -70px; 
@@ -1033,124 +1076,227 @@ html{
 /****************************************************************************************************************************
 *! Index.html.twig end
 ****************************************************************************************************************************/
+/***************************************************************************************************************************
+*
+****************************************************************************************************************************/
+
+/****************************************************************************************************************************
+*
+****************************************************************************************************************************/
+/****************************************************************************************************************************
+*! realization/index.html.twig start
+****************************************************************************************************************************/
+/* Styles pour le select */
+
+.work-realization h3{
+    color: var(--blue-color);
+}
+.category-dropdown {
+    padding: 7px 25px;
+    font-size: 18px;
+    font-weight: 50;
+    cursor: pointer;
+    color: var(--yellow-color);
+    border-radius: 50px;
+    background-color: var(--blue-color);
+    border: 2px solid var(--blue-color);
+    transition: all 0.3s ease;
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    width: 100%; 
+    white-space: nowrap;
+    outline: none; 
+    font-weight: 500;
+}
+
+select:hover,
+select:active {
+    color:var(--blue-color);
+    background-color: var(--yellow-color);
+}
+
+/****************************************************************************************************************************
+*! realization/index.twig end
+****************************************************************************************************************************/
+/***************************************************************************************************************************
+*
+****************************************************************************************************************************/
+/***************************************************************************************************************************
+*
+****************************************************************************************************************************/
 
 /****************************************************************************************************************************
 *! details_realization.html.twig start
 ****************************************************************************************************************************/
+.details-realization {
+    margin-top: 100px;
+    margin-bottom: 4%;
+}
+
+.details-realization  h2{
+    color: var(--yellow-color);
+    font-size:4rem ;
+}
+
+
+.details-realization .text-decoration-none.m-2 {
+    font-size: 1.7em;
+}
+
+li.text-decoration-none.m-2:not(:last-child)::after {
+    content: ",";
+    margin-right: 3px; 
+}
+
+
 .wrapper{
-max-width: 1100px;
+    margin-bottom :6%;
+    max-width: 1100px;
 }
 
 .gallery{
-display: flex;
-flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .gallery .image{
-padding: 7px;
-width: calc(100% / 3);
+    padding: 7px;
+    width: calc(100% / 3);
 }
 
 .gallery .image span{
-display: flex;
-width: 100%;
-overflow: hidden;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
 }
 
 .gallery .image img{
-width: 100%;
-vertical-align: middle;
-transition: all 0.5s ease;
-border: #000 solid 1px;
-border-radius: 3px;
+    width: 100%;
+    vertical-align: middle;
+    transition: all 0.5s ease;
+    border: #000 solid 1px;
+    border-radius: 3px;
 }
 
 .gallery .image:hover img{
-transform: scale(1.1);
-cursor: pointer;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .preview-box{
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%) scale(0.9);
-background: #fff;
-max-width: 700px;
-width: 100%;
-z-index: 5;
-opacity: 0;
-pointer-events: none;
-border-radius: 3px;
-padding: 0 5px 5px 5px;
-box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #fff;
+    max-width: 700px;
+    width: 100%;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 3px;
+    padding: 0 5px 5px 5px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
 }
+
 .preview-box.show{
-opacity: 1;
-pointer-events: auto;
-transform: translate(-50%, -50%) scale(1);
-transition: all 0.3s ease;
-z-index: 1000;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.3s ease;
+    z-index: 1000;
 }
+
 .preview-box .details{
-display: flex;
-align-items: center;
-padding: 12px 15px 12px 10px;
-justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px 12px 10px;
+    justify-content: space-between;
 }
+
 .preview-box .details .title{
-display: flex;
-font-size: 18px;
-font-weight: 400;
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
 }
+
 .details .title p{
-margin: 0 5px;
+    margin: 0 5px;
 }
+
 .details .title p.current-img{
-font-weight: 500;
+    font-weight: 500;
 }
+
 .details .icon{
-color: #007bff;
-font-size: 20px;
-cursor: pointer;
+    color: var(--blue-color);
+    font-size: 20px;
+    cursor: pointer;
 }
+
 .preview-box .image-box{
-display: flex;
-width: 100%;
-position: relative;
+    display: flex;
+    width: 100%;
+    position: relative;
 }
+
 .image-box .slide{
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-color: #fff;
-font-size: 30px;
-cursor: pointer;
-height: 50px;
-width: 60px;
-line-height: 50px;
-text-align: center;
-border-radius: 3px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue-color);
+    font-size: 30px;
+    cursor: pointer;
+    height: 50px;
+    width: 60px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 3px;
 }
+
 .slide.prev{
-left: 0px;
+    left: 0px;
 }
+
 .slide.next{
-right: 0px;
+    right: 0px;
 }
+
 .image-box img{
-width: 100%;
-border-radius: 0 0 3px 3px;
+    width: 100%;
+    border-radius: 0 0 3px 3px;
 }
+
 .shadow{
-position: fixed;
-top: 0;
-left: 0;
-height: 100%;
-width: 100%;
-z-index: 2;
-display: none;
-background: rgba(0,0,0,0.45);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    display: none;
+    background: rgba(0,0,0,0.45);
+}
+
+@media screen and (max-width: 1200px){
+    .custom-flex-container {
+        flex-direction: column;
+    }
+    .details-realization .list-unstyled {
+        max-width: 100%;
+    }
+    .details-realization .list-unstyled li {
+        flex: 1; /* distribue l'espace équitablement entre les éléments li */
+    }
+
+    .details-realization .custom-margin {
+        margin-top: 20px;
+    }
+
+    .details-realization .list-unstyled li{
+        white-space: nowrap;
+    }
 }
 
 @media(max-width: 1024px){
@@ -1167,4 +1313,21 @@ background: rgba(0,0,0,0.45);
     
 /****************************************************************************************************************************
 *! details_realization.html.twig end
+****************************************************************************************************************************/
+/****************************************************************************************************************************
+*! 
+****************************************************************************************************************************/
+/****************************************************************************************************************************
+*! 
+****************************************************************************************************************************/
+/****************************************************************************************************************************
+*! categorie/show_realization.html.twig start 
+****************************************************************************************************************************/
+.wrapper-realization-category {
+    margin-top: 40px;
+}
+
+
+/****************************************************************************************************************************
+*! categorie/show_realization.html.twig end
 ****************************************************************************************************************************/

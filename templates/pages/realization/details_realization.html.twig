@@ -2,27 +2,30 @@
 
 {% block body %}
 
-<div class="container mt-4 justify-content-space-between">
-    <h2>Gallery</h2>
-    <div class="row space-between">
-      <div class="col-md-9">
-        <div class="d-flex">
-          <h2>L'année et lieux des travaux :  &nbsp; </h2>
-          <h2>{{ realization.year|default(0)  }}</h2>&nbsp; <h2>-</h2>&nbsp; <h2>{{  realization.locations }}</h2>
+<div class="d-flex details-realization container custom-flex-container">
+      <div class="col-md-8 col-lg-8">
+        <h2>Gallérie</h2>
+        <div class="row">
+          <div>
+            <div class="d-flex mt-4">
+              <h3>L'année et lieux des travaux :  &nbsp; </h3>
+              <h3>{{ realization.year|default(0)  }}</h3>&nbsp; <h3>-</h3>&nbsp; <h3>{{  realization.locations }}</h3>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md-3">
-        <h3>Catégories</h3>
+    <div class="col-md-4 col-lg-4 custom-margin ">
+        <h2>Catégorie(s)</h2>
         <ul class='list-unstyled d-flex'>
           {% for category in realization.categorys %}
-            <a href="#" class='text-decoration-none m-2'><li>{{ category }}</li></a>
+            <li class='text-decoration-none m-2'>{{ category }}</li>
           {% endfor %}
         </ul>
       </div>
     </div>
 </div>
 
-<div class="wrapper container mt-4">
+<div class="wrapper details-realization-img container mt-4">
     <div class="gallery">
     {% for image in realization.realizationImages %}
         <div class="image">
@@ -36,7 +39,7 @@
   </div>
   <div class="preview-box">
     <div class="details">
-      <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
+      <span class="title">Image <p class="current-img"></p> sur <p class="total-img"></p></span>
       <span class="icon fas fa-times"></span>
     </div>
     <div class="image-box">

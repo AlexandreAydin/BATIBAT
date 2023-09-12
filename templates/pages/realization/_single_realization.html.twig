@@ -1,6 +1,6 @@
-<section class="work">
+<section class="work work-reveal">
     <div class="container">
-        <div class="section-header text-center mb-4">                   
+        <div class="section-header text-center mb-4">                     
         </div>
         <div class="row">
             {% for realization in realizations %}
@@ -10,7 +10,7 @@
                         <div class="work-img">
                             {% if firstImage %}
                                 <a href="{{ path('app_realization_details', { 'slug': realization.slug }) }}">
-                                    <img  style="width: 42,7rem; height: 29,8rem; object-fit: fill;" src="{{ asset('images/realizations/' ~ firstImage.name) }}" alt="Image de réalisation">
+                                    <img  src="{{ asset('images/realizations/' ~ firstImage.name) }}" alt="Image de réalisation">
                                 </a>
                             {% endif %}
                         </div>
@@ -26,4 +26,4 @@
             {% endfor %} 
         </div>
     </div>
-</section>
+</section>   

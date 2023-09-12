@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Nos derniers travaux réalisés
+{% block title %} Nos Réalisations
 {% endblock %}
 
 {% block body %}
 
-	<div class="container mt-4 service-reveal">
+	<div class="work work-realization container mt-4 service-reveal">
 		<div>
-			<h3 class "container p-4"> Nos derniers travaux réalisés </h3>
-			{% for categorie in categories %}
-				<li>
-					<a href="{{ path ('app_category_show_realization', {slug: categorie.slug}) }}">{{ categorie.name }}</a>
-				</li>
-			{% endfor %}
+			<h2>Nos Réalisations</h2> 
+			<h3>Trier par catégorie:  </h3>   
+			<div class="wrapper-realization">
+				<div class="nav">
+					<div class="items">
+						<select class="category-dropdown" 
+							data-realization-path="{{ path('app_realization') }}" 
+							data-category-path-template="{{ path('app_category_show_realization', {slug: 'REPLACE_ME' }) }}">
+						<option value="active">Tout</option>
+						{% for categorie in categories %}
+							<option value="{{ categorie.slug }}">{{ categorie.name }}</option>
+						{% endfor %}
+					</select>
+					</div>
+				</div>
+			</div>
 			<div id="prest-list" class="service-reveal">
-			{% include 'pages/realization/_single_realization.html.twig'%}
+				{% include 'pages/realization/_single_realization.html.twig'%}
 			</div>	
 		</div>
 		<div class="container">
@@ -25,4 +35,15 @@
 			</div>
 		</div>
 	</div>
+
+<script>
+	document.querySelector('.category-dropdown').addEventListener('change', function(e) {
+    if(e.target.value === "active") {
+        window.location.href = "{{ path('app_realization') }}";
+    } else {
+        window.location.href = "{{ path('app_category_show_realization', {slug: 'REPLACE_ME' }) }}".replace('REPLACE_ME', e.target.value);
+    }
+});
+</script>
 {% endblock %}
+
