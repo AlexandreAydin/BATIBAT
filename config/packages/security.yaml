@@ -76,7 +76,7 @@ security:
                 path: app_security.logout
 
     access_control:
-        # ajoutez vos règles d'accès ici
+         - { path: ^/admin, roles: ROLE_ADMIN }
 
 when@test:
     security:

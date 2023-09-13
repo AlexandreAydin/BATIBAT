@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="error text-center text-center justify-content-cent align-item-center hv-100%">
+        <h1>{% block message %}{% endblock %}</h1>
+        <h2>{% block description %}{% endblock %}</h2>
+        <a class='btn' href="{{path ('app_home')}}">Retourner à l'accueil</a>
+    </div>
+{% endblock %}

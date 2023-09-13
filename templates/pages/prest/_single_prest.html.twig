@@ -44,11 +44,11 @@
                 {% set descriptionWithoutImage = prest.description|replace({('<img' ~ (endSplit[0] is defined ? endSplit[0] : '') ~ '>'): '', '</img>': ''}) %}
 
                 <div class="card-body">
-                    <p class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</p>
+                     <div class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</div>
 
                 </div>
 
-                <div class="card-footer p-0 text-center card-text mb-4">
+                <div class="card-footer p-0 text-center card-text pb-4">
                     <a class="btn" href="{{ path('app_prest_details', { 'slug': prest.slug }) }}">Lire Plus</a>
                 </div>
             </div>

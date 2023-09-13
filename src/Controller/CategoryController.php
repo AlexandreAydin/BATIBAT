@@ -38,7 +38,7 @@ class CategoryController extends AbstractController
         );
 
         return $this->render('category/show_prest.html.twig', [
-            'categorie' => $categorie,
+            'currentCategorie' => $categorie,
             'prests' => $prests,
             'categories' => $categoriesWithPrestations,
         ]);

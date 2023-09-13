@@ -1,26 +1,34 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{categorie.name}}{% endblock %}
+{% block title %}{{currentCategorie.name}}{% endblock %}
 
 {% block body %}
-    <main class="container mt-4">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">{{categorie.name}}</h3>
-        <div>
-            {# {% for cat in allCategories %} 
-                <li>
-                    <a href="{{ path ('app_category_show', {slug: cat.slug}) }}">{{ cat.name }}</a>
-                </li>
-            {% endfor %} #}
-            {% for categorie in categories %}
-                <li>
-                    <a href="{{ path ('app_category_show_prest', {slug: categorie.slug}) }}">{{ categorie.name }}</a>
-                </li>
-            {% endfor %}
-
-        </div>
+    <main class="container wrapper-realization-category">    
+        <h3>Trier par catégorie: </h3>   
+        <div class="wrapper-realization">
+            <div class="nav">
+                <div class="items">            
+                    <select class="category-dropdown">
+                        <option value="active" {% if not currentCategorie %}selected{% endif %}>Tout</option>
+                        {% for categorie in categories %}
+                            <option value="{{ categorie.slug }}" {% if currentCategorie and currentCategorie.slug == categorie.slug %}selected{% endif %}>{{ categorie.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+		</div>
         <div id="prest-list" class="service-reveal">
             {% include "pages/prest/_single_prest.html.twig" with {prests: prests} %}
         </div>
-   
     </main>
+
+    <script>
+        document.querySelector('.category-dropdown').addEventListener('change', function(e) {
+            if(e.target.value === "active") {
+                window.location.href = "{{ path('app_prest') }}";
+            } else {
+                window.location.href = "{{ path('app_category_show_prest', {slug: 'REPLACE_ME' }) }}".replace('REPLACE_ME', e.target.value);
+            }
+        });
+	</script>
 {% endblock %}

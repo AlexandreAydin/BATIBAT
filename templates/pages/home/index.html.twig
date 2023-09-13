@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}BatiBat{% endblock %}
 
 {% block image %}{% endblock %}
 
@@ -92,7 +92,7 @@
                         </li>
                     </ul>
 
-                    <a class="btn" href="">Demander un devis</a>
+                    <a class="btn" href="{{ path ('app_contact')}}">Demander un devis</a>
                 </div>
             </div>
         </div>
@@ -101,8 +101,9 @@
 <!-- About End -->
 
 <!-- Service Start -->
-<section class="service container mt-4 service-reveal">
-    <div class="row g-3 mt-4 mb-4">
+<section class="service container mt-4">
+    <h2 class='text-center mb-4'>Nos Préstations</h2>
+    <div class="row g-3 mt-4 mb-4 service-reveal">
         {% for prest in prests|slice(0, 6) %}
         <div class="col-12 col-md-6 col-lg-4 ">
             <div class="card">
@@ -147,10 +148,9 @@
 
                 <div class="card-body">
                     <div class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</div>
-
                 </div>
 
-                <div class="card-footer p-0 text-center card-text mb-4">
+                <div class="card-footer p-0 text-center card-text pb-4">
                     <a class="btn" href="{{ path('app_prest_details', { 'slug': prest.slug }) }}">Lire Plus</a>
                 </div>
             </div>
@@ -213,10 +213,10 @@
 <section class="work work-reveal">
     <div class="container">
         <div class="section-header text-center mb-4">       
-        <h2>Nos derniers travaux réalisés</h2>                    
+        <h2>Nos Derniers Travaux Réalisés</h2>                    
         </div>
         <div class="row">
-            {% for realization in realizations %}
+            {% for realization in realizations|slice(0, 3) %}
                 <div class="col-lg-4 col-md-6 wow fadeInUp">
                     <div class="work-item">
                         {% set firstImage = realization.realizationImages.first() %}
