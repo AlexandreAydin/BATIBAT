@@ -40,6 +40,12 @@ class Realization
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column(length: 60, nullable: true)]
+    private ?string $pageTitle = null;
+
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $pageMetaDescription = null;
+
 
     public function __construct()
     {
@@ -164,6 +170,30 @@ class Realization
     public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getPageTitle(): ?string
+    {
+        return $this->pageTitle;
+    }
+
+    public function setPageTitle(?string $pageTitle): static
+    {
+        $this->pageTitle = $pageTitle;
+
+        return $this;
+    }
+
+    public function getPageMetaDescription(): ?string
+    {
+        return $this->pageMetaDescription;
+    }
+
+    public function setPageMetaDescription(?string $pageMetaDescription): static
+    {
+        $this->pageMetaDescription = $pageMetaDescription;
 
         return $this;
     }

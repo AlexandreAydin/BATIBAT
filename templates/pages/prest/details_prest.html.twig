@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{# Afaire plus tard #}
 {% block title %}
-    {{ prest.name }} - Détails de la prestation
+    {{ prest.pageTitle }}
+{% endblock %}
+{% block meta_description %}
+    {{ prest.pageMetaDescription }}
 {% endblock %}
 
 {% block body %}
+
 <section class="container details-prest">
     <h2 class="text-center">{{ prest.name }}</h2>
 

@@ -25,7 +25,7 @@ class Prest
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\ManyToMany(targetEntity: Categorie::class, inversedBy: 'prests')]
@@ -38,6 +38,13 @@ class Prest
      * @ORM\Column(type="string", length=255)
      */
     private $imagePath;
+
+    #[ORM\Column(length: 60, nullable: true)]
+    private ?string $pageTitle = null;
+
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $pageMetaDescription = null;
+
 
     public function __construct()
     {
@@ -125,6 +132,30 @@ class Prest
     public function getImagePath(): ?string
     {
         return $this->imagePath;
+    }
+
+    public function getPageTitle(): ?string
+    {
+        return $this->pageTitle;
+    }
+
+    public function setPageTitle(?string $pageTitle): static
+    {
+        $this->pageTitle = $pageTitle;
+
+        return $this;
+    }
+
+    public function getPageMetaDescription(): ?string
+    {
+        return $this->pageMetaDescription;
+    }
+
+    public function setPageMetaDescription(?string $pageMetaDescription): static
+    {
+        $this->pageMetaDescription = $pageMetaDescription;
+
+        return $this;
     }
 
 }

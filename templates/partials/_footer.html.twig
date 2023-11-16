@@ -6,8 +6,8 @@
                 <div class="footer-contact">
                     <h2>Contact</h2>
                     <p><i class="fa fa-map-marker-alt"></i>Vaux le Penil</p>
-                    <p><i class="fa fa-phone-alt"></i>+33 6 51 52 55 87</p>
-                    <p><i class="fa fa-envelope"></i>batibatvlp@gmail.com</p>
+                    <p><i class="fa fa-phone-alt"></i><a class="text-decoration-none text-white mx-2" href="tel:{{ phone|default('+33 6 51 52 55 87') }}">06 51 52 55 87</a></p>
+                    <p><i class="fa fa-envelope"></i><a class="text-decoration-none text-white mx-2" href="mailto:{{ email|default('batibatvlp@gmail.com') }}">batibatvlp@gmail.com</a></p>
                 </div>
             </div>
                  <div class="col-md-6 col-lg-4">
@@ -20,23 +20,24 @@
             <div class="col-md-6 col-lg-3">
                 <div class="footer-social">
                 <h2>Suivez nous</h2>
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-youtube"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a target="_blanck" href="https://twitter.com/batibatvlp"><i class="fa-brands fa-x-twitter"></i></i></a>
+                            <a target="_blanck" href="https://www.facebook.com/bati.bat.9083"><i class="fab fa-facebook-f"></i></a>
+                            <a target="_blanck" href="https://www.youtube.com/channel/UCowP9VLHasDX1-cPGULgQOQ"><i class="fab fa-youtube"></i></a>
+                            <a target="_blanck" href="https://www.instagram.com/batibatvlp/"><i class="fab fa-instagram"></i></a>
+                            <a target="_blanck" href="https://www.tiktok.com/@batibatvlp"><i class="fa-brands fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container copyright">
+    <div class="container copyright text-center">
         <div class="row">
-            <div class="col-md-6">
-                <p>&copy; <a href="{{ path ('app_home')}}">Batibat</a>, All Right Reserved.</p>
-            </div>
-            <div class="col-md-6">
-                <p>Designed By <a href="">Yilmi</a></p>
+            <div class="col-md-12">
+               <p>Tout le droit résérver à <br>
+                    <a class="  text-center text-decoration-none" target="_blank" href="https://webetdigital.com/"><img class="logo-footer" src="{{ asset ('img/logo-webetdigital.webp')}}" alt="logo-webetdigital"></a>
+                </p>
             </div>
         </div>
     </div>
+
 </div>
 <!-- Footer End -->

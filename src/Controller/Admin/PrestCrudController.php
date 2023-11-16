@@ -34,6 +34,8 @@ class PrestCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TextField::new('pageTitle', 'block title'),
+            TextField::new('pageMetaDescription','block meta description'),
             TextField::new('name'),
             SlugField::new('slug')->setTargetFieldName('name'),
             TextEditorField::new('description')

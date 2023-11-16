@@ -29,6 +29,8 @@ class RealizationCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('pageTitle'),
+            TextField::new('pageMetaDescription'),
             TextField::new('title','titre'),
             SlugField::new('slug')->setTargetFieldName('title'),
             TextField::new('locations','lieux'),

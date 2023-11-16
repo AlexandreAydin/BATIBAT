@@ -1000,6 +1000,10 @@ html{
     color: #ffffff;
 }
 
+.logo-footer{
+  height: 25px;
+}
+
 @media (max-width: 991px) {
   .footer img {
     margin-left: 220px;
@@ -1027,6 +1031,11 @@ html{
       }
       .footer-social{
         margin-left: -70px; 
+      }
+
+      .copyright img{
+        margin-top: 7px;
+        margin-left: 10px;
       }
 }
 

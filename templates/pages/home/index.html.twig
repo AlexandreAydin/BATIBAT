@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}BatiBat{% endblock %}
+{% block title %}Entreprise de Maçonnerie, Construction, Rénovation | BatiBat {% endblock %}
+{% block meta_description %}BatiBat : Excellence en maçonnerie, construction et rénovation en Île-de-France. Des projets réalisés avec soin. Visitez-nous pour plus d'infos.{% endblock %}
 
 {% block image %}{% endblock %}
 
@@ -103,7 +104,7 @@
 <!-- Service Start -->
 <section class="service container mt-4">
     <h2 class='text-center mb-4'>Nos Préstations</h2>
-    <div class="row g-3 mt-4 mb-4 service-reveal">
+    <div class="row g-3 mt-4 mb-4">
         {% for prest in prests|slice(0, 6) %}
         <div class="col-12 col-md-6 col-lg-4 ">
             <div class="card">
@@ -132,7 +133,7 @@
                 
                 {# Affichage de l'image #}
                 {% if imageUrl %}
-                <div class="img-wrapper">
+                <div class="img-wrapper service-reveal">
                     <img src="{{ asset(imageUrl) }}" alt="{{ prest.name }}" class='custom-img-size'>
                 </div>
                 {% else %}

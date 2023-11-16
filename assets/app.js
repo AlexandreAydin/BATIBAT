@@ -90,8 +90,8 @@ sr.reveal(".feature-reveal .reveal-bottom i", {
 
 sr.reveal(".service-reveal", {
   duration: 3000,
-  origin: "left",
-  distance: "200px",
+  origin: "bottom",
+  distance: "100px",
 });
 
 /*******************************
