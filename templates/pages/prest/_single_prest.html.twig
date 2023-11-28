@@ -43,8 +43,7 @@
             {% set descriptionWithoutImage = prest.description|replace({('<img' ~ (endSplit[0] is defined ? endSplit[0] : '') ~ '>'): '', '</img>': ''}) %}
 
             <div class="card-body">
-                    <div class="card-text">{{ (descriptionWithoutImage | slice(0, 500) ~ '...') | raw }}</div>
-
+                    <div class="card-text">{{ (descriptionWithoutImage | slice(0, 400) ~ '...') | raw }}</div>
             </div>
 
             <div class="card-footer p-0 text-center card-text pb-4">

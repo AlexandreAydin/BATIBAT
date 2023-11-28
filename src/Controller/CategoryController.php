@@ -34,7 +34,7 @@ class CategoryController extends AbstractController
         $prests = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
-            1 
+            16 
         );
 
         return $this->render('category/show_prest.html.twig', [
@@ -64,7 +64,7 @@ class CategoryController extends AbstractController
         $realizations = $paginator->paginate(
             $query,
             $request->query->getInt('page', 1),
-            1
+            16
         );
 
         return $this->render('category/show_realizations.html.twig',[
@@ -72,7 +72,5 @@ class CategoryController extends AbstractController
             'realizations' => $realizations,
             'categories' =>  $categorieWithRealizations
         ]);
-
-
     }
 }

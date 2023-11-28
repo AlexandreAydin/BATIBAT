@@ -32,6 +32,10 @@
     
         {% if block('image') is defined %}
         <div class="upper-part">
+             <video autoplay loop muted playsinline class="bg-video">
+                <source src="{{ asset('img/3d-construct.mp4') }}" type="video/mp4">
+                </video>
+
             <div class="container">
                 <div class="row">
                     <div class="col-md-12  d-flex flex-column align-items-center justify-content-center">

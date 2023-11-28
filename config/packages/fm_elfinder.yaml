@@ -13,6 +13,6 @@ fm_elfinder:
                         show_hidden: false 
                         driver: LocalFileSystem
                         path: uploads/images 
-                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg'] 
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg','image/webp'] 
                         upload_deny: ['all'] 
                         upload_max_size: 2M 
