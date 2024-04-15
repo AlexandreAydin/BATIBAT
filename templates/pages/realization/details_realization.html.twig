@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block extra_head %}
+    {% set canonicalUrl = url('app_realization_details', {'slug': realization.slug}) %}
+    <link rel="canonical" href="{{ canonicalUrl }}" />
+{% endblock %}
+
 {% block body %}
 
 <div class="d-flex details-realization container custom-flex-container">

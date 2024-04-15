@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block extra_head %}
+    {% set canonicalUrl = url('app_prest_details', {'slug': prest.slug}) %}
+    <link rel="canonical" href="{{ canonicalUrl }}" />
+{% endblock %}
+
 {# Afaire plus tard #}
 {% block title %}
     {{ prest.pageTitle }}
@@ -97,8 +102,6 @@ Chez Batibat, nous croyons qu'un jardin magnifiquement délimité par des bordur
         </div>
     </div>
 </div>
-
-
 
 
 

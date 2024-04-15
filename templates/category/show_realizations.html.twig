@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block extra_head %}
+    {% set canonicalUrl = url('app_category_show_realization', {'slug': currentCategorie.slug}) %}
+    <link rel="canonical" href="{{ canonicalUrl }}" />
+{% endblock %}
+
 {% block title %}{{ currentCategorie.name}}{% endblock %}
 
 {% block body %}

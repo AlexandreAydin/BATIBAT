@@ -70,4 +70,19 @@ Encore
     //.autoProvidejQuery()
 ;
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+// Dans votre configuration Webpack
+if (Encore.isProduction()) {
+    Encore.addPlugin(new BundleAnalyzerPlugin());
+}
+
+if (Encore.isProduction()) {
+    Encore.addPlugin(new BundleAnalyzerPlugin({
+        // Options de configuration ici
+        analyzerMode: 'static',
+        openAnalyzer: false
+    }));
+}
+
 module.exports = Encore.getWebpackConfig();
